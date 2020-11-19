@@ -12,6 +12,10 @@ public class GlobalWind : MonoBehaviour
     public Vector2 direction;
     public float magnitude;
 
+    public LineRenderer line;
+
+
+
     // Update is called once per frame
     void Start()
     {
@@ -20,10 +24,14 @@ public class GlobalWind : MonoBehaviour
     }
     void Update() {
         //umbrella.removeForce(id);
-        
+
+
+        line.SetPosition(0, Vector3.zero);
+        line.SetPosition(1, windDirection.position);
+
         // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
 
-        direction = (Vector2)transform.position - Vector2.zero;
+        direction = (Vector2)windDirection.position - Vector2.zero;
 
     }
 }

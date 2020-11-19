@@ -456,10 +456,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   umbrella: {fileID: 2066405166}
   windSFX: {fileID: 340204481}
-  id: 0
-  windDirection: {x: 0, y: 0}
+  id: 1
+  windDirection: {fileID: 866744072}
   direction: {x: 0, y: 0}
-  magnitude: 0
+  magnitude: 50
+  line: {fileID: 340204480}
 --- !u!4 &340204483
 Transform:
   m_ObjectHideFlags: 0
@@ -1773,7 +1774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!120 &1346227744
 LineRenderer:
   m_ObjectHideFlags: 0
