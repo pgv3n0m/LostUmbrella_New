@@ -15,7 +15,8 @@ public class Umbrella_Movement1 : MonoBehaviour
     public Transform _centerOfMass;
 
     // Forces acting upon umbrella, gravity is handled by Unity
-    private Dictionary<int, float> magnitudes;
+    private Dictionary<int, Vector2> referenceForces;
+    private Dictionary<int, Magnitude> magnitudes;
     private Dictionary<int, Vector2> directions;
 
     // Start is called before the first frame update
@@ -38,8 +39,10 @@ public class Umbrella_Movement1 : MonoBehaviour
         }
         // ------------
 
-        if (magnitudes != null && directions != null)
+        if (referenceForces != null && magnitudes != null && directions != null)
         {
+            updateForces();
+
             foreach (int k in magnitudes.Keys)
             {
                 if (directions.ContainsKey(k)) applyForce(magnitudes[k], directions[k]);
@@ -47,12 +50,14 @@ public class Umbrella_Movement1 : MonoBehaviour
         }
     }
 
-    public void addForce(int id, float intensity, Vector2 force)
+    public void addForce(int id, Magnitude magnitude, Vector2 force)
     {
         if (force == null) return;
-        if (magnitudes == null) magnitudes = new Dictionary<int, float>();
+        if (referenceForces == null) referenceForces = new Dictionary<int, Vector2>();
+        if (magnitudes == null) magnitudes = new Dictionary<int, Magnitude>();
         if (directions == null) directions = new Dictionary<int, Vector2>();
-        magnitudes.Add(id, intensity);
+        referenceForces.Add(id, force);
+        magnitudes.Add(id, magnitude);
 
         Vector2 newF = new Vector2(force.x, force.y);
         newF.Normalize();
@@ -61,20 +66,34 @@ public class Umbrella_Movement1 : MonoBehaviour
 
     public void removeForce(int id)
     {
-        if (magnitudes == null || directions == null) return;
+        if (referenceForces == null || magnitudes == null || directions == null) return;
+        referenceForces.Remove(id);
         magnitudes.Remove(id);
         directions.Remove(id);
     }
 
-    private void applyForce(float magnitude, Vector2 direction)
+    // Since we do changes to the directional vectors
+    // when we normalize them, we have soft copies.
+    // Soft copies needs to be updated
+    // magnitude and referece is Hard copies so they update themselves.
+    private void updateForces()
+    {
+        if (referenceForces == null) return;
+        foreach(int k in referenceForces.Keys)
+        {
+            directions[k] = new Vector2(referenceForces[k].x, referenceForces[k].y);
+            directions[k].Normalize();
+        }
+    }
+
+    private void applyForce(Magnitude magnitude, Vector2 direction)
     {
         if (direction == null) return;
         
         //Mimics wind resistant of an umbrella
         float parallelity = Vector2.Angle(gameObject.transform.up, direction);
         
-        
         if (_cacheRigidbody.velocity.magnitude < 10.0f)
-            _cacheRigidbody.velocity += (Vector2)direction * parallelity * magnitude * Time.deltaTime;
+            _cacheRigidbody.velocity += (Vector2)direction * parallelity * magnitude.val * Time.deltaTime;
     }
 }

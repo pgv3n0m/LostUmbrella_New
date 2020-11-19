@@ -11,6 +11,7 @@ public class GlobalWind : MonoBehaviour
     public Transform windDirection;
     public Vector2 direction;
     public float magnitude;
+    public Magnitude m; //To have a non-primitive float value; i.e. give it a pointer.
 
     public LineRenderer line;
 
@@ -19,7 +20,7 @@ public class GlobalWind : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        umbrella.addForce(id, magnitude, direction);
+        umbrella.addForce(id, m, direction);
 
     }
     void Update() {
@@ -33,5 +34,6 @@ public class GlobalWind : MonoBehaviour
 
         direction = (Vector2)windDirection.position - Vector2.zero;
 
+        m.val = magnitude;
     }
 }

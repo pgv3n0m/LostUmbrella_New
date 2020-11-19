@@ -12,7 +12,8 @@ public class Wind : MonoBehaviour
     public Vector2 direction;
 
     public LineRenderer line;
-    public float forceIntensity;
+    public float magnitude;
+    public Magnitude m; //To have a non-primitive float value; i.e. give it a pointer.
 
     // Start is called before the first frame update
     public bool isWindOn;
@@ -23,7 +24,7 @@ public class Wind : MonoBehaviour
         
         {
             isWindOn = true;
-            _Umbrella.addForce(windId,forceIntensity,direction); //Adds Wind to Map
+            _Umbrella.addForce(windId,m,direction); //Adds Wind to Map
         }
     }
 
@@ -40,16 +41,11 @@ public class Wind : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        direction = (Vector2)windDirection.position - (Vector2)this.transform.position;
 
-        
-            direction = (Vector2)windDirection.position - (Vector2)this.transform.position;
+        line.SetPosition(0, this.transform.position);
+        line.SetPosition(1, windDirection.position);
 
-            line.SetPosition(0, this.transform.position);
-            line.SetPosition(1, windDirection.position);
-        
-
-        
+        m.val = magnitude;
     }
-
-  
 }
