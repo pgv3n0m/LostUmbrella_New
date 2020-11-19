@@ -15,18 +15,13 @@ public class GlobalWind : MonoBehaviour
 
     public LineRenderer line;
 
-
-
     // Update is called once per frame
     void Start()
     {
         umbrella.addForce(id, m, direction);
-
     }
+
     void Update() {
-        //umbrella.removeForce(id);
-
-
         line.SetPosition(0, Vector3.zero);
         line.SetPosition(1, windDirection.position);
 
