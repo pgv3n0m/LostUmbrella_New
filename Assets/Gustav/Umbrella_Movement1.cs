@@ -38,8 +38,12 @@ public class Umbrella_Movement1 : MonoBehaviour
         }
         // ------------
 
-        foreach (int k in magnitudes.Keys) {
-            if(directions.ContainsKey(k)) applyForce(magnitudes[k], directions[k]);
+        if (magnitudes != null && directions != null)
+        {
+            foreach (int k in magnitudes.Keys)
+            {
+                if (directions.ContainsKey(k)) applyForce(magnitudes[k], directions[k]);
+            }
         }
     }
 

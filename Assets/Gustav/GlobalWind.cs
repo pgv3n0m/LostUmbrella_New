@@ -8,18 +8,22 @@ public class GlobalWind : MonoBehaviour
     public AudioSource windSFX;
 
     public int id;
-    public Vector2 windDirection;
+    public Transform windDirection;
     public Vector2 direction;
     public float magnitude;
 
     // Update is called once per frame
+    void Start()
+    {
+        umbrella.addForce(id, magnitude, direction);
+
+    }
     void Update() {
-        umbrella.removeForce(id);
+        //umbrella.removeForce(id);
         
         // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
 
-        direction = windDirection - Vector2.zero;
+        direction = (Vector2)transform.position - Vector2.zero;
 
-        umbrella.addForce(id, magnitude, direction);
     }
 }
