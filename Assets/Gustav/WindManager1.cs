@@ -16,6 +16,7 @@ public class WindManager1 : MonoBehaviour
 
     public float forceIntensity;
     public float maxForce;
+    public float intensity;
 
     public AudioSource windSFX;
     void Update()
