@@ -18,6 +18,8 @@ public class GlobalWind : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        direction = (Vector2)windDirection.position - Vector2.zero; // Get wind direction in first frame
+
         umbrella.addForce(id, m, direction);
     }
 
@@ -27,8 +29,8 @@ public class GlobalWind : MonoBehaviour
 
         // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
 
-        direction = (Vector2)windDirection.position - Vector2.zero;
-
+        //direction = (Vector2)windDirection.position - Vector2.zero;
         m.val = magnitude;
+
     }
 }

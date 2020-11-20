@@ -91,9 +91,13 @@ public class Umbrella_Movement1 : MonoBehaviour
         if (direction == null) return;
         
         //Mimics wind resistant of an umbrella
-        float parallelity = Vector2.Angle(gameObject.transform.up, direction);
+        float parallelity = Vector2.Angle(gameObject.transform.up, direction); // Give Angles in degree between Umbrella up direction and direction of wind
         
+        parallelity = Mathf.Abs((90 - parallelity) / 90.0f); // Clamps Angles between 0 & 1 ... since this needs to be multiplied to magnitude
+
         if (_cacheRigidbody.velocity.magnitude < 10.0f)
+        {
             _cacheRigidbody.velocity += (Vector2)direction * parallelity * magnitude.val * Time.deltaTime;
+        }
     }
 }

@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 340204483}
   - component: {fileID: 340204482}
   - component: {fileID: 340204481}
+  - component: {fileID: 340204484}
   - component: {fileID: 340204480}
   m_Layer: 0
   m_Name: GlobalWind
@@ -248,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!120 &340204480
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -459,7 +460,8 @@ MonoBehaviour:
   id: 1
   windDirection: {fileID: 866744072}
   direction: {x: 0, y: 0}
-  magnitude: 50
+  magnitude: 10
+  m: {fileID: 340204484}
   line: {fileID: 340204480}
 --- !u!4 &340204483
 Transform:
@@ -476,6 +478,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340204484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340204479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa4a4005d51c04418ade5bf6fc5e9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  val: 0
 --- !u!1 &444361038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866744071}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20.7, z: 0}
+  m_LocalPosition: {x: 9.6, y: 27.89, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 340204483}
@@ -1884,12 +1899,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e462b3a52cc4523468e8f08a06032de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windId: 0
   _Umbrella: {fileID: 2066405166}
+  windSFX: {fileID: 0}
+  windId: 0
   windDirection: {fileID: 444361039}
   direction: {x: 0, y: 0}
+  magnitude: 0
+  m: {fileID: 0}
   line: {fileID: 1346227744}
-  forceIntensity: 15
   isWindOn: 0
 --- !u!4 &1346227746
 Transform:
@@ -2094,7 +2111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1975282472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2411,7 +2428,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 5
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: ef13b42573399c648a45a04b541d4365, type: 2}
   m_Interpolate: 0
