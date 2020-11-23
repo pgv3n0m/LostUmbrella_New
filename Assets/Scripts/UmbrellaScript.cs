@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Umbrella_Movement1 : MonoBehaviour
+public class UmbrellaScript : MonoBehaviour
 {
    
 
@@ -120,7 +120,7 @@ public class Umbrella_Movement1 : MonoBehaviour
 
         if (_cacheRigidbody.velocity.magnitude < 10.0f)
         {
-            _cacheRigidbody.velocity += (Vector2)this.transform.up * parallelity * magnitude.val * Time.deltaTime;
+            _cacheRigidbody.velocity += (Vector2)direction * parallelity * magnitude.val * Time.deltaTime;
 
             // Much better behaviour and controls if we apply velocity towards umbrella transform.up instead of velocity to whole umbrella in wind direction
         }

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Wind : MonoBehaviour
 {
-    public Umbrella_Movement1 _Umbrella;
+    public UmbrellaScript _Umbrella;
     public AudioSource windSFX;
 
     public int windId;
     public Transform windDirection;
     public Vector2 direction;
-    public float magnitude;
     public Magnitude m; //To have a non-primitive float value; i.e. give it a pointer.
 
     public LineRenderer line;
@@ -43,7 +42,5 @@ public class Wind : MonoBehaviour
 
         line.SetPosition(0, this.transform.position);
         line.SetPosition(1, windDirection.position);
-
-        m.val = magnitude;
     }
 }
