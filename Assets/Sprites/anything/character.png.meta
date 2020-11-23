@@ -4,34 +4,40 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 7152930139536384079
-    second: character_0
+    second: head
   - first:
       213: -5725962078152895296
-    second: character_1
+    second: right_forearm
   - first:
       213: -8401692288953904933
-    second: character_2
+    second: right_bisep
   - first:
       213: 7888922196035610388
-    second: character_3
+    second: torso
   - first:
       213: -8090365562718305141
-    second: character_4
+    second: left_bisep
   - first:
       213: 3445332486847661990
-    second: character_5
+    second: left_forearm
   - first:
       213: 7456334905099763947
-    second: character_6
+    second: right_thigh
   - first:
       213: 5377859178988851676
-    second: character_7
+    second: left_thigh
   - first:
       213: -4124168217499134943
-    second: character_8
+    second: right_shin
   - first:
       213: 4620578802948863353
-    second: character_9
+    second: left_shin
+  - first:
+      213: -6835189599539173722
+    second: character_10
+  - first:
+      213: 679739729869728943
+    second: character_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_0
+      name: head
       rect:
         serializedVersion: 2
         x: 205
@@ -125,7 +131,7 @@ TextureImporter:
         width: 88
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,7 +144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_1
+      name: right_forearm
       rect:
         serializedVersion: 2
         x: 0
@@ -146,7 +152,7 @@ TextureImporter:
         width: 59
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_2
+      name: right_bisep
       rect:
         serializedVersion: 2
         x: 94
@@ -167,7 +173,7 @@ TextureImporter:
         width: 80
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,15 +186,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_3
+      name: torso
       rect:
         serializedVersion: 2
         x: 212
-        y: 191
+        y: 190
         width: 69
         height: 121
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_4
+      name: left_bisep
       rect:
         serializedVersion: 2
         x: 324
@@ -209,7 +215,7 @@ TextureImporter:
         width: 80
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_5
+      name: left_forearm
       rect:
         serializedVersion: 2
         x: 426
@@ -230,7 +236,7 @@ TextureImporter:
         width: 59
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,7 +249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_6
+      name: right_thigh
       rect:
         serializedVersion: 2
         x: 209
@@ -251,7 +257,7 @@ TextureImporter:
         width: 25
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,7 +270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_7
+      name: left_thigh
       rect:
         serializedVersion: 2
         x: 264
@@ -272,7 +278,7 @@ TextureImporter:
         width: 25
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_8
+      name: right_shin
       rect:
         serializedVersion: 2
         x: 204
@@ -293,7 +299,7 @@ TextureImporter:
         width: 25
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -306,7 +312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_9
+      name: left_shin
       rect:
         serializedVersion: 2
         x: 267
@@ -314,7 +320,7 @@ TextureImporter:
         width: 25
         height: 59
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,6 +328,48 @@ TextureImporter:
       bones: []
       spriteID: 975777eb0f79f1040800000000000000
       internalID: 4620578802948863353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_10
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 131
+        width: 138
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6e50b06478421a0800000000000000
+      internalID: -6835189599539173722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: character_11
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 124
+        width: 99
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facea92deabee6900800000000000000
+      internalID: 679739729869728943
       vertices: []
       indices: 
       edges: []
