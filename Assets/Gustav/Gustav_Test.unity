@@ -1977,11 +1977,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6168274332240691296, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_UseLimits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6168274332705676957, guid: c42a749d60407b5449df30b894d7817f,
         type: 3}
       propertyPath: m_Name
@@ -2042,103 +2037,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6168274333169901366, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_UseLimits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_AngleLimits.m_LowerAngle
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_AngleLimits.m_UpperAngle
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_Anchor.x
-      value: -0.40000057
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_Anchor.y
-      value: -0.0000000015894557
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.34203053
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.49292362
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274333857002530, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_UseLimits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274334218155853, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_AngleLimits.m_LowerAngle
-      value: -225
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274334218155853, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_AngleLimits.m_UpperAngle
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274334218155853, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_Anchor.y
-      value: -0.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274334218155853, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: 0.042027466
-      objectReference: {fileID: 0}
-    - target: {fileID: 6168274334218155853, guid: c42a749d60407b5449df30b894d7817f,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.5429235
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c42a749d60407b5449df30b894d7817f, type: 3}
---- !u!1 &788375200 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6168274332240691326, guid: c42a749d60407b5449df30b894d7817f,
-    type: 3}
-  m_PrefabInstance: {fileID: 788375199}
-  m_PrefabAsset: {fileID: 0}
---- !u!233 &788375201
-HingeJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788375200}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 1081865925}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0.18, y: 0}
-  m_ConnectedAnchor: {x: -0.18095967, y: -0.2593383}
-  m_UseMotor: 0
-  m_Motor:
-    m_MotorSpeed: 0
-    m_MaximumMotorForce: 10000
-  m_UseLimits: 0
-  m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 359
 --- !u!1 &866744071
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,7 +2455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b05c17bf266d8743ace52c0d58cdb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2066405164}
+  player: {fileID: 1081865930}
 --- !u!1 &1081865924
 GameObject:
   m_ObjectHideFlags: 0
@@ -8299,6 +8199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2066405164}
+  offSet: 235
 --- !u!1 &2066405161
 GameObject:
   m_ObjectHideFlags: 0
