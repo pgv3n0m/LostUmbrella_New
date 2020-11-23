@@ -44,7 +44,7 @@ public class WindManager1 : MonoBehaviour
         //    windSFX.volume -= Time.deltaTime * 0.5f;
 
         //}
-        umbrella.GlobalWind = true;
+        //umbrella.GlobalWind = true;
         //windSFX.volume += Time.deltaTime * 0.5f;
     }
 

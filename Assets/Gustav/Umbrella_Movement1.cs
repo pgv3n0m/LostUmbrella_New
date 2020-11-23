@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Umbrella_Movement1 : MonoBehaviour
 {
-    // TODO: Remove
-    // ------------
-    public WindManager1 wm;
-    public bool GlobalWind;
-    // ------------
+   
 
     // 'UI/Game' umbrella elements to manipulate
+
+    [Header("Important References")]
     public Rigidbody2D _cacheRigidbody;
     public Transform _centerOfMass;
+    public SpriteRenderer _cacheSpriteRenderer;
+    public PolygonCollider2D _polygonCollider;
+
+    [Header("Umbrella Visuals")]
+
+    public BoxCollider2D _closeUmbrella_collider;
+    public Sprite _closeUmbrella;
+    public Sprite _openUmbrella;
+    public bool isOpen = true;
+
 
     // Forces acting upon umbrella, gravity is handled by Unity
     private Dictionary<int, Vector2> referenceForces;
@@ -23,23 +31,38 @@ public class Umbrella_Movement1 : MonoBehaviour
     void Awake() { _cacheRigidbody.centerOfMass = _centerOfMass.localPosition; }
 
     // Update is called once per frame
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            if (isOpen)
+            {
+                isOpen = false;
+                _cacheSpriteRenderer.sprite = _closeUmbrella;
+                _closeUmbrella_collider.enabled = true;
+                _polygonCollider.enabled = false;
+            }
+            else
+            {
+                isOpen = true;
+                _cacheSpriteRenderer.sprite = _openUmbrella;
+                _closeUmbrella_collider.enabled = false;
+                _polygonCollider.enabled = true;
+            }
+
+        }
+    }
+
+
     void FixedUpdate()
     {
         // Rotates/angles the umbrella based on user input
         _cacheRigidbody.AddTorque(-200.0f * Input.GetAxis("Horizontal"));
 
-        // TODO: Remove
-        // ------------
-        if (GlobalWind)
-        {
-            //if (_cacheRigidbody.velocity.magnitude < 10.0f)
-            //    _cacheRigidbody.velocity += (Vector2)this.transform.up * wm.forceIntensity * wm.maxForce;
-            if (_cacheRigidbody.velocity.magnitude < 10.0f)
-                _cacheRigidbody.velocity += (Vector2)wm.direction * wm.forceIntensity * wm.maxForce * Time.deltaTime;   // v=a*dt
-        }
-        // ------------
+       
 
-        if (referenceForces != null && magnitudes != null && directions != null)
+        if (referenceForces != null && magnitudes != null && directions != null && isOpen)
         {
             updateForces();
 
