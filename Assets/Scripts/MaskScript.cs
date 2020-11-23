@@ -8,7 +8,7 @@ public class MaskScript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color defaultColor = new Color(111,111,111);
     private float playerProgression = 0;
-    private float offSet = 235f;
+    public float offSet = 235f;
     
     void Start()
     {
@@ -19,6 +19,7 @@ public class MaskScript : MonoBehaviour
     void Update()
     {
         playerProgression = (player.position.x + offSet) / 600f;
+        Debug.Log(playerProgression);
         spriteRenderer.color = new Color(
             defaultColor.r*playerProgression, 
             defaultColor.g*playerProgression, 
