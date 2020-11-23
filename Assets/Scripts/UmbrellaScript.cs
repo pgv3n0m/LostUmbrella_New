@@ -73,6 +73,12 @@ public class UmbrellaScript : MonoBehaviour
         }
     }
 
+    public void updateForce(int id, Magnitude magnitude, Vector2 force)
+    {
+        removeForce(id);
+        addForce(id, magnitude, force);
+    }
+
     public void addForce(int id, Magnitude magnitude, Vector2 force)
     {
         if (force == null) return;

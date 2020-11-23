@@ -20,7 +20,7 @@ public class GlobalWind : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        direction = (Vector2)windDirection.position - Vector2.zero; // Get wind direction in first frame
+        //direction = (Vector2)windDirection.position - Vector2.zero; // Get wind direction in first frame
 
         umbrella.addForce(id, m, direction);
         StartCoroutine("RandomWindDirection_Set");
@@ -30,7 +30,6 @@ public class GlobalWind : MonoBehaviour
 
 
     void Update() {
-
         // Debug Visualization of Global Wind Direction
         line.SetPosition(0, Vector3.zero);
         line.SetPosition(1, windDirection.position);
@@ -43,8 +42,8 @@ public class GlobalWind : MonoBehaviour
         // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
         windDirection.transform.position = Vector3.Lerp(windDirection.transform.position, new Vector3(currentX_direction, 27.0f, 0), Time.deltaTime * 0.5f);
 
-        //direction = (Vector2)windDirection.position - Vector2.zero;
-
+        direction = (Vector2)windDirection.position - Vector2.zero;
+        umbrella.updateForce(id, m, direction);
     }
 
     public IEnumerator RandomWindDirection_Set()
