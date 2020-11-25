@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class UmbrellaScript : MonoBehaviour
 {
-   
+
 
     // 'UI/Game' umbrella elements to manipulate
 
     [Header("Important References")]
+    public GameManager _gm;
     public Rigidbody2D _cacheRigidbody;
     public Transform _centerOfMass;
     public SpriteRenderer _cacheSpriteRenderer;
@@ -129,6 +130,15 @@ public class UmbrellaScript : MonoBehaviour
             _cacheRigidbody.velocity += (Vector2)direction * parallelity * magnitude.val * Time.deltaTime;
 
             // Much better behaviour and controls if we apply velocity towards umbrella transform.up instead of velocity to whole umbrella in wind direction
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("TutorialExitTrigger"))
+        {
+            col.gameObject.SetActive(false);
+            _gm.ExitTutorial();
         }
     }
 }

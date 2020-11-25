@@ -36,7 +36,7 @@ public class GlobalWind : MonoBehaviour
         velocityOverLifetime.xMultiplier = windDirection.position.x * -1.0f;
 
         // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
-        windDirection.transform.position = Vector3.Lerp(windDirection.transform.position, new Vector3(currentX_direction, windDirection.position.y, 0), Time.deltaTime * 0.5f);
+        windDirection.transform.position = Vector3.Lerp(windDirection.transform.position, new Vector3(currentX_direction, windDirection.position.y, 0), Time.deltaTime * 0.3f);
 
         direction = (Vector2)windDirection.position - Vector2.zero;
         umbrella.updateForce(id, magnitude, direction);
@@ -45,7 +45,7 @@ public class GlobalWind : MonoBehaviour
     private IEnumerator RandomWindDirection_Set()
     {
         yield return new WaitForSeconds(Random.Range(5f,8f));
-        currentX_direction = Random.Range(-25.0f,25.0f);
+        currentX_direction *= -1f;
         StartCoroutine("RandomWindDirection_Set");
     }
 }
