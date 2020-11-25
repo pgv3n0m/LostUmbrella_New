@@ -8,12 +8,15 @@ public class Wind : MonoBehaviour
     public AudioSource windSFX;
 
     public int id;
-    //public Transform windDirection;
     public Vector2 direction;
-    public Magnitude magnitude; //To have a non-primitive float value; i.e. give it a pointer.
+    public Magnitude magnitude; //To have a non-primitive float value; i.e. give it a pointer. In case we want dynamic changes later on
 
-    // Start is called before the first frame update
     public bool isWindOn;
+
+    private void Start()
+    {
+        windSFX.Play();
+    }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
@@ -38,5 +41,10 @@ public class Wind : MonoBehaviour
     {
         direction = (Vector2)this.transform.right;
         if(isWindOn) _Umbrella.updateForce(id, magnitude, direction);
+
+        //Fade sound in and out based on umbrella proximity = 100% when player is inside, 0% when ofscreen
+        float distanceToUmbrella = Mathf.Abs(this.transform.position.x - _Umbrella.transform.position.x);
+        if (distanceToUmbrella >= 30f) windSFX.volume = 0;
+        else windSFX.volume = 1.0f - (distanceToUmbrella / 30);
     }
 }

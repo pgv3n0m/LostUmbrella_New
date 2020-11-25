@@ -468,16 +468,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 525496020, guid: 678b961a4a4a610439d992454258002c, type: 3}
       propertyPath: val
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
-      propertyPath: id
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
-      propertyPath: magnitude
-      value: 
-      objectReference: {fileID: 945751910}
     - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
       propertyPath: _Umbrella
       value: 
@@ -2065,18 +2057,6 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 525496020, guid: 678b961a4a4a610439d992454258002c,
     type: 3}
   m_PrefabInstance: {fileID: 2101931181}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baa4a4005d51c04418ade5bf6fc5e9db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &945751910 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 525496020, guid: 678b961a4a4a610439d992454258002c,
-    type: 3}
-  m_PrefabInstance: {fileID: 210304071}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -7473,7 +7453,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 525496020, guid: 678b961a4a4a610439d992454258002c, type: 3}
       propertyPath: val
-      value: 300
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
       propertyPath: magnitude
@@ -8215,7 +8195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 525496020, guid: 678b961a4a4a610439d992454258002c, type: 3}
       propertyPath: val
-      value: 1000
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
       propertyPath: id
