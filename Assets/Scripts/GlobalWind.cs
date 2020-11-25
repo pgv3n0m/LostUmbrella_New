@@ -20,14 +20,14 @@ public class GlobalWind : MonoBehaviour
 
     public float maxWindDirection;
 
+    public float minSoundVolume;
+    public float maxSoundVolume;
+
     // Update is called once per frame
     void Start()
     {
-
         umbrella.addForce(id, magnitude, direction);
         StartCoroutine("RandomWindDirection_Set");
-
-
     }
 
     void Update() {
@@ -45,6 +45,15 @@ public class GlobalWind : MonoBehaviour
 
         direction = (Vector2)windDirection.position - Vector2.zero;
         umbrella.updateForce(id, magnitude, direction);
+
+        //Fade sound in and out based on parallelity with umbrella
+        if (umbrella.open())
+        {
+            float parallelityToUmbrella = Vector2.Angle(umbrella.transform.up, direction);
+            parallelityToUmbrella = Mathf.Abs((90 - parallelityToUmbrella) / 90.0f);
+            if(maxSoundVolume <= 1f && maxSoundVolume >= 0f)  windSFX.volume = parallelityToUmbrella * maxSoundVolume;
+        }
+        else if(minSoundVolume <= 1f && minSoundVolume >= 0f) windSFX.volume = minSoundVolume;
     }
 
     private IEnumerator RandomWindDirection_Set()

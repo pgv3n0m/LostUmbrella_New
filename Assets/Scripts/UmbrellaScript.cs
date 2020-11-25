@@ -35,7 +35,7 @@ public class UmbrellaScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (!_cacheRigidbody.isKinematic && Input.GetKeyUp(KeyCode.Space))
         {
             if (isOpen)
             {
@@ -72,6 +72,11 @@ public class UmbrellaScript : MonoBehaviour
                 if (directions.ContainsKey(k)) applyForce(magnitudes[k], directions[k]);
             }
         }
+    }
+
+    public bool open()
+    {
+        return isOpen;
     }
 
     public void updateForce(int id, Magnitude magnitude, Vector2 force)

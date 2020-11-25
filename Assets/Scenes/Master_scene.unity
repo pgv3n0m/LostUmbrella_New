@@ -908,6 +908,8 @@ MonoBehaviour:
   _rainParticle: {fileID: 1147276832}
   currentX_direction: 0
   maxWindDirection: 35
+  minSoundVolume: 0.05
+  maxSoundVolume: 0.4
 --- !u!4 &340204483
 Transform:
   m_ObjectHideFlags: 0
