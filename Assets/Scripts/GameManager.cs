@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public enum GameState { Tutorial, Started, Completed, Failed }
+    public enum GameState { Tutorial, Started, Completed }
 
     public GameState gameState;
 
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         _uicontroller.LevelCompletedPanel.SetActive(true);
+        gameState = GameState.Completed;
     }
 
     public void ExitTutorial()
@@ -52,6 +53,8 @@ public class GameManager : MonoBehaviour
             _uicontroller.timer.text = string.Format("{0}:{1}", minutes, seconds);
             _uicontroller.final_time.text = "Your Score: " + _uicontroller.timer.text;
         }
+        else if (gameState == GameState.Completed && Input.GetKeyUp(KeyCode.R))
+            Application.LoadLevel(0);
         
     }
 }
