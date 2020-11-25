@@ -811,6 +811,7 @@ MonoBehaviour:
   line: {fileID: 340204480}
   _rainParticle: {fileID: 1147276832}
   currentX_direction: -15
+  maxWindDirection: 35
 --- !u!4 &340204483
 Transform:
   m_ObjectHideFlags: 0
