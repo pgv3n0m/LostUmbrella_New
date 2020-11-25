@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 424786588143125279}
   - component: {fileID: 424786588143125276}
   - component: {fileID: 424786588143125277}
+  - component: {fileID: 525496022}
+  - component: {fileID: 525496020}
+  - component: {fileID: 525496021}
   m_Layer: 0
-  m_Name: gust_original
+  m_Name: gust_gameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 424786588143125274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6.89544, y: 3.023846, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,3 +105,62 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &525496022
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424786588143125274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.693989, y: 2.75}
+    newSize: {x: 7.693989, y: 2.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.693989, y: 2.75}
+  m_EdgeRadius: 0
+--- !u!114 &525496020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424786588143125274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa4a4005d51c04418ade5bf6fc5e9db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  val: 100
+--- !u!114 &525496021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424786588143125274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e462b3a52cc4523468e8f08a06032de4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Umbrella: {fileID: 0}
+  windSFX: {fileID: 0}
+  windId: 1
+  windDirection: {fileID: 0}
+  direction: {x: 1, y: 0}
+  m: {fileID: 525496020}
+  line: {fileID: 0}
+  isWindOn: 0
