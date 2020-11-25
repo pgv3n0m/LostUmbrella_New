@@ -807,7 +807,7 @@ MonoBehaviour:
   id: 1
   windDirection: {fileID: 866744072}
   direction: {x: 0, y: 0}
-  m: {fileID: 340204484}
+  magnitude: {fileID: 340204484}
   line: {fileID: 340204480}
   _rainParticle: {fileID: 1147276832}
   currentX_direction: -15

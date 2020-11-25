@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GlobalWind : MonoBehaviour
 {
     public UmbrellaScript umbrella;
@@ -17,6 +18,8 @@ public class GlobalWind : MonoBehaviour
 
     public float currentX_direction = 0;
 
+    public float maxWindDirection;
+
     // Update is called once per frame
     void Start()
     {
@@ -24,9 +27,11 @@ public class GlobalWind : MonoBehaviour
         umbrella.addForce(id, magnitude, direction);
         StartCoroutine("RandomWindDirection_Set");
 
+
     }
 
     void Update() {
+
         // Debug Visualization of Global Wind Direction
         line.SetPosition(0, Vector3.zero);
         line.SetPosition(1, windDirection.position);
@@ -44,8 +49,12 @@ public class GlobalWind : MonoBehaviour
 
     private IEnumerator RandomWindDirection_Set()
     {
-        yield return new WaitForSeconds(Random.Range(5f,8f));
-        currentX_direction *= -1f;
+        yield return new WaitForSeconds(Random.Range(1f,1.2f));
+
+        float x = Random.Range(1f,10f);
+        float y = Mathf.Log(x, 10f);
+
+        currentX_direction = (2 * y - 1) * maxWindDirection; 
         StartCoroutine("RandomWindDirection_Set");
     }
 }
