@@ -125,7 +125,7 @@ public class UmbrellaScript : MonoBehaviour
         
         parallelity = Mathf.Abs((90 - parallelity) / 90.0f); // Clamps Angles between 0 & 1 ... since this needs to be multiplied to magnitude
 
-        if (_cacheRigidbody.velocity.magnitude < 10.0f)
+        if (!_cacheRigidbody.isKinematic && _cacheRigidbody.velocity.magnitude < 10.0f)
         {
             _cacheRigidbody.velocity += (Vector2)direction * parallelity * magnitude.val * Time.deltaTime;
 
