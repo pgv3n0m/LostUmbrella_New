@@ -10,7 +10,7 @@ public class GlobalWind : MonoBehaviour
     public int id;
     public Transform windDirection;
     public Vector2 direction;
-    public Magnitude m; //To have a non-primitive float value; i.e. give it a pointer.
+    public Magnitude magnitude; //To have a non-primitive float value; i.e. give it a pointer.
 
     public LineRenderer line;
     public ParticleSystem _rainParticle;
@@ -21,18 +21,15 @@ public class GlobalWind : MonoBehaviour
     void Start()
     {
 
-        umbrella.addForce(id, m, direction);
+        umbrella.addForce(id, magnitude, direction);
         StartCoroutine("RandomWindDirection_Set");
 
     }
-
-
 
     void Update() {
         // Debug Visualization of Global Wind Direction
         line.SetPosition(0, Vector3.zero);
         line.SetPosition(1, windDirection.position);
-
 
         // Apply velocity to rain particles along x based on the wind direction
         var velocityOverLifetime = _rainParticle.velocityOverLifetime;
@@ -42,10 +39,10 @@ public class GlobalWind : MonoBehaviour
         windDirection.transform.position = Vector3.Lerp(windDirection.transform.position, new Vector3(currentX_direction, windDirection.position.y, 0), Time.deltaTime * 0.5f);
 
         direction = (Vector2)windDirection.position - Vector2.zero;
-        umbrella.updateForce(id, m, direction);
+        umbrella.updateForce(id, magnitude, direction);
     }
 
-    public IEnumerator RandomWindDirection_Set()
+    private IEnumerator RandomWindDirection_Set()
     {
         yield return new WaitForSeconds(Random.Range(5f,8f));
         currentX_direction = Random.Range(-25.0f,25.0f);

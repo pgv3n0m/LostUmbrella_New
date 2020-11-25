@@ -7,22 +7,20 @@ public class Wind : MonoBehaviour
     public UmbrellaScript _Umbrella;
     public AudioSource windSFX;
 
-    public int windId;
-    public Transform windDirection;
+    public int id;
+    //public Transform windDirection;
     public Vector2 direction;
-    public Magnitude m; //To have a non-primitive float value; i.e. give it a pointer.
-
-    public LineRenderer line;
+    public Magnitude magnitude; //To have a non-primitive float value; i.e. give it a pointer.
 
     // Start is called before the first frame update
     public bool isWindOn;
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Umbrella") && !isWindOn) 
+        if (col.gameObject.CompareTag("Umbrella") && !isWindOn)
         {
             isWindOn = true;
-            _Umbrella.addForce(windId,m,direction); //Adds Wind to Map
+            _Umbrella.addForce(id, magnitude, direction); //Adds Wind to Map
         }
     }
 
@@ -31,16 +29,14 @@ public class Wind : MonoBehaviour
         if (col.gameObject.CompareTag("Umbrella") && isWindOn)
         {
             isWindOn = false;
-            _Umbrella.removeForce(windId); //Removes Wind from Dictionary
+            _Umbrella.removeForce(id); //Removes Wind from Dictionary
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        direction = (Vector2)windDirection.position - (Vector2)this.transform.position;
-
-        line.SetPosition(0, this.transform.position);
-        line.SetPosition(1, windDirection.position);
+        direction = (Vector2)this.transform.right;
+        if(isWindOn) _Umbrella.updateForce(id, magnitude, direction);
     }
 }
