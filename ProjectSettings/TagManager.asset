@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Umbrella
   - TutorialExitTrigger
+  - Completed
   layers:
   - Default
   - TransparentFX

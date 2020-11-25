@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Started;
     }
 
+    public void GameCompleted()
+    {
+        Time.timeScale = 0.0f;
+        _uicontroller.LevelCompletedPanel.SetActive(true);
+    }
+
     public void ExitTutorial()
     {
         gameState = GameState.Started;
@@ -44,6 +50,7 @@ public class GameManager : MonoBehaviour
 
 
             _uicontroller.timer.text = string.Format("{0}:{1}", minutes, seconds);
+            _uicontroller.final_time.text = "Your Score: " + _uicontroller.timer.text;
         }
         
     }
