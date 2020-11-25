@@ -5,7 +5,6 @@ using UnityEngine;
 public class GhostScript : MonoBehaviour
 {
     public GameObject _Ragdoll;
-    public float ragdoll_startX;
     private Rigidbody2D[] bodyparts;
 
     public Rigidbody2D _Umbrella;
@@ -18,7 +17,6 @@ public class GhostScript : MonoBehaviour
     void Start()
     {
         bodyparts = _Ragdoll.GetComponentsInChildren<Rigidbody2D>();
-        ragdoll_startX = _Ragdoll.transform.position.x;
         umbrella_startX = _Umbrella.transform.position.x;
     }
 
@@ -63,21 +61,10 @@ public class GhostScript : MonoBehaviour
 
     private void moveLeft()
     {
-        _Ragdoll.transform.position += speed * Time.deltaTime;
-        _Umbrella.transform.position += speed * Time.deltaTime;
-
-        float ragDif = ragdoll_startX - _Ragdoll.transform.position.x;
-        if (ragDif > 0)
+        if (umbrella_startX < _Umbrella.transform.position.x)
         {
-            _Ragdoll.transform.position += new Vector3(ragDif, 0f, 0f);
-            _Umbrella.transform.position += new Vector3(ragDif, 0f, 0f);
-        }
-
-        float umbDif = umbrella_startX - _Umbrella.transform.position.x;
-        if (umbDif > 0)
-        {
-            _Ragdoll.transform.position += new Vector3(umbDif, 0f, 0f);
-            _Umbrella.transform.position += new Vector3(umbDif, 0f, 0f);
+            _Ragdoll.transform.position += speed * Time.deltaTime;
+            _Umbrella.transform.position += speed * Time.deltaTime;
         }
     }
 }

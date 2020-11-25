@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: magnitude
       value: 
       objectReference: {fileID: 945751910}
+    - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
+      propertyPath: _Umbrella
+      value: 
+      objectReference: {fileID: 2066405166}
     - target: {fileID: 424786588143125274, guid: 678b961a4a4a610439d992454258002c,
         type: 3}
       propertyPath: m_Name
@@ -911,7 +915,7 @@ MonoBehaviour:
   line: {fileID: 340204480}
   _rainParticle: {fileID: 1147276832}
   currentX_direction: 0
-  maxWindDirection: 0
+  maxWindDirection: 35
 --- !u!4 &340204483
 Transform:
   m_ObjectHideFlags: 0
@@ -1969,6 +1973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa4a4005d51c04418ade5bf6fc5e9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &845256409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6168274332705676957, guid: c42a749d60407b5449df30b894d7817f,
+    type: 3}
+  m_PrefabInstance: {fileID: 437729433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866744071
 GameObject:
   m_ObjectHideFlags: 0
@@ -7469,6 +7479,10 @@ PrefabInstance:
       propertyPath: magnitude
       value: 
       objectReference: {fileID: 825519064}
+    - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
+      propertyPath: _Umbrella
+      value: 
+      objectReference: {fileID: 2066405166}
     - target: {fileID: 424786588143125274, guid: 678b961a4a4a610439d992454258002c,
         type: 3}
       propertyPath: m_Name
@@ -7860,6 +7874,7 @@ GameObject:
   - component: {fileID: 2066405162}
   - component: {fileID: 2066405167}
   - component: {fileID: 2066405168}
+  - component: {fileID: 2066405169}
   m_Layer: 0
   m_Name: Umbrella
   m_TagString: Umbrella
@@ -8177,6 +8192,20 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &2066405169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066405161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa2514e13b52134b9f9d6230a14ddbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Ragdoll: {fileID: 845256409}
+  _Umbrella: {fileID: 2066405165}
 --- !u!1001 &2101931181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8196,6 +8225,10 @@ PrefabInstance:
       propertyPath: magnitude
       value: 
       objectReference: {fileID: 942698717}
+    - target: {fileID: 525496021, guid: 678b961a4a4a610439d992454258002c, type: 3}
+      propertyPath: _Umbrella
+      value: 
+      objectReference: {fileID: 2066405166}
     - target: {fileID: 424786588143125274, guid: 678b961a4a4a610439d992454258002c,
         type: 3}
       propertyPath: m_Name
