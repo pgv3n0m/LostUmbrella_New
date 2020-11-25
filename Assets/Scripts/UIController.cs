@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public GameObject GamePaused;
     public GameObject LevelCompletedPanel;
     public Text timer;
+    public Text final_time;
     // Start is called before the first frame update
    
 

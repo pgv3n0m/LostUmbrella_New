@@ -140,5 +140,12 @@ public class UmbrellaScript : MonoBehaviour
             col.gameObject.SetActive(false);
             _gm.ExitTutorial();
         }
+
+        if (col.gameObject.CompareTag("Completed"))
+        {
+            col.gameObject.SetActive(false);
+            _gm.GameCompleted();
+        }
+
     }
 }
