@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
@@ -10,11 +10,18 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
 
     public float timer;
+    public UmbrellaScript _umbrella;
+    public ParticleSystem _rain;
     public UIController _uicontroller;
+
+    public float _distance;
+    public Transform _endTrigger;
     // Start is called before the first frame update
     void Awake()
     {
         Time.timeScale = 1.0f;
+
+
     }
 
     // Update is called once per frame
@@ -59,7 +66,13 @@ public class GameManager : MonoBehaviour
             _uicontroller.final_time.text = "Your Score: " + _uicontroller.timer.text;
         }
         else if (gameState == GameState.Completed && Input.GetKeyUp(KeyCode.R)) // When game is completed then it can be restarted by pressing R
-            Application.LoadLevel(0);
-        
+            SceneManager.LoadScene(0);
+
+
+        // Increase the Rain Particle Rate based on distance from the End Game Trigger
+        _distance = Mathf.Abs((Vector3.Distance(_endTrigger.position, _umbrella.transform.position) - 315f));
+        var emission = _rain.emission;
+        emission.rateOverTime = 2.0f * _distance;
+
     }
 }
