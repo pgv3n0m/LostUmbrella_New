@@ -41,7 +41,7 @@ public class GlobalWind : MonoBehaviour
         velocityOverLifetime.xMultiplier = windDirection.position.x * -1.0f;
 
         // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
-        windDirection.transform.position = Vector3.Lerp(windDirection.transform.position, new Vector3(currentX_direction, windDirection.position.y, 0), Time.deltaTime * 0.3f);
+        windDirection.transform.position = Vector3.Lerp(windDirection.position, new Vector3(currentX_direction, windDirection.position.y, 0), Time.deltaTime * 0.3f);
 
         direction = (Vector2)windDirection.position - Vector2.zero;
         umbrella.updateForce(id, magnitude, direction);
