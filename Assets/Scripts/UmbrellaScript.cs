@@ -18,15 +18,16 @@ public class UmbrellaScript : MonoBehaviour
     [Header("Umbrella Visuals")]
 
     public BoxCollider2D _closeUmbrella_collider;
-    public Sprite _closeUmbrella;
-    public Sprite _openUmbrella;
+    public Sprite _closeUmbrella, _openUmbrella;
     public bool isOpen = true;
+
+    public AudioClip opening_sound, closing_sound;
+    public AudioSource soundSFX;
 
 
     // Forces acting upon umbrella, gravity is handled by Unity
-    private Dictionary<int, Vector2> referenceForces;
+    private Dictionary<int, Vector2> referenceForces, directions;
     private Dictionary<int, Magnitude> magnitudes;
-    private Dictionary<int, Vector2> directions;
 
     // Start is called before the first frame update
     void Awake() { _cacheRigidbody.centerOfMass = _centerOfMass.localPosition; }
@@ -43,6 +44,7 @@ public class UmbrellaScript : MonoBehaviour
                 _cacheSpriteRenderer.sprite = _closeUmbrella;
                 _closeUmbrella_collider.enabled = true;
                 _polygonCollider.enabled = false;
+                soundSFX.PlayOneShot(closing_sound);
             }
             else
             {
@@ -50,6 +52,7 @@ public class UmbrellaScript : MonoBehaviour
                 _cacheSpriteRenderer.sprite = _openUmbrella;
                 _closeUmbrella_collider.enabled = false;
                 _polygonCollider.enabled = true;
+                soundSFX.PlayOneShot(opening_sound);
             }
 
         }

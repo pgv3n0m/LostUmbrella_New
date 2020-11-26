@@ -6982,6 +6982,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: lightning_gameObject
       objectReference: {fileID: 0}
+    - target: {fileID: 6086816677679207631, guid: c49f7970535562b4c92a7325b8f95b5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f7970535562b4c92a7325b8f95b5b, type: 3}
 --- !u!1 &1671624167
