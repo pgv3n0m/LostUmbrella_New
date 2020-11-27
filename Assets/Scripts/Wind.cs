@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wind : MonoBehaviour
+public class Wind : MonoBehaviour, IUpdateable
 {
     public UmbrellaScript _Umbrella;
     public AudioSource windSFX;
@@ -16,6 +16,7 @@ public class Wind : MonoBehaviour
     private void Start()
     {
         windSFX.Play();
+        _Umbrella._gm.gl.RegisterUpdateObject(this);
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -37,9 +38,10 @@ public class Wind : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void OnUpdate(float dt)
     {
-        direction = (Vector2)this.transform.right;
+        
+            direction = (Vector2)this.transform.right;
         if(isWindOn) _Umbrella.updateForce(id, magnitude, direction);
 
         //Fade sound in and out based on umbrella proximity = 100% when player is inside, 0% when ofscreen

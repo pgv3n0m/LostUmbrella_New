@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UmbrellaScript : MonoBehaviour
+public class UmbrellaScript : MonoBehaviour, IUpdateable
 {
 
 
@@ -30,13 +30,13 @@ public class UmbrellaScript : MonoBehaviour
     private Dictionary<int, Magnitude> magnitudes;
 
     // Start is called before the first frame update
-    void Awake() { _cacheRigidbody.centerOfMass = _centerOfMass.localPosition; }
+    void Awake() { _cacheRigidbody.centerOfMass = _centerOfMass.localPosition; _gm.gl.RegisterUpdateObject(this); }
 
     // Update is called once per frame
 
-    void Update()
+    public virtual void OnUpdate(float dt)
     {
-        if (!_cacheRigidbody.isKinematic && Input.GetKeyUp(KeyCode.Space))
+            if (!_cacheRigidbody.isKinematic && Input.GetKeyUp(KeyCode.Space))
         {
             if (isOpen)
             {

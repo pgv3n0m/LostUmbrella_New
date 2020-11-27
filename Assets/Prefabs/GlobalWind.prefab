@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6546069848657030579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.2, y: 44.22, z: 0}
+  m_LocalPosition: {x: 45, y: 44.22, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 6546069849191645559}
@@ -132,14 +132,15 @@ MonoBehaviour:
   windSFX: {fileID: 6546069849191645557}
   id: 0
   windDirection: {fileID: 6546069848657030588}
-  direction: {x: 0, y: 0}
+  direction: {x: 45, y: 0}
   magnitude: {fileID: 6546069849191645552}
   line: {fileID: 6546069849191645556}
   _rainParticle: {fileID: 0}
   currentX_direction: -15
-  maxWindDirection: 35
+  maxWindDirection: 45
   minSoundVolume: 0.05
   maxSoundVolume: 0.4
+  gl: {fileID: 0}
 --- !u!82 &6546069849191645557
 AudioSource:
   m_ObjectHideFlags: 0

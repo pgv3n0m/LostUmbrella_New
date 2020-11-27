@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IUpdateable
 {
 
     public enum GameState { Tutorial, Started, Completed }
@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour
 
     public float _distance;
     public Transform _endTrigger;
+
+    public GameLogic gl;
     // Start is called before the first frame update
     void Awake()
     {
         Time.timeScale = 1.0f;
-
+        gl.RegisterUpdateObject(this);
 
     }
 
@@ -48,16 +50,16 @@ public class GameManager : MonoBehaviour
         _uicontroller.TutorialPanel.SetActive(false);
     }
 
-    void Update()
+    public virtual void OnUpdate(float dt)
     {
-        if (gameState == GameState.Started)
+    
+            if (gameState == GameState.Started)
         {
-            timer += Time.deltaTime;
+            timer += dt;
 
             // Converts delta time to second and minutes
             string minutes = Mathf.Floor(timer / 60).ToString("00");
             string seconds = (timer % 60).ToString("00");
-
 
             // Shows the timer in string format on canvas Text Component
             _uicontroller.timer.text = string.Format("{0}:{1}", minutes, seconds);

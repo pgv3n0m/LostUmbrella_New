@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GhostScript : MonoBehaviour
+public class GhostScript : MonoBehaviour,IUpdateable
 {
     public GameObject _Ragdoll;
     private Rigidbody2D[] bodyparts;
@@ -13,18 +13,21 @@ public class GhostScript : MonoBehaviour
     private Vector3 speed = new Vector3(-10f,0f, 0f);
     private Color ghostMode = new Color(255f, 255f, 255f, 0.5f);
 
+    public GameLogic gl;
+
     // Start is called before the first frame update
     void Start()
     {
         bodyparts = _Ragdoll.GetComponentsInChildren<Rigidbody2D>();
         umbrella_startX = _Umbrella.transform.position.x;
+        gl.RegisterUpdateObject(this);
     }
 
     private bool kinematic = false;
     // Update is called once per frame
-    void Update()
+    public virtual void OnUpdate(float dt)
     {
-        if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.Q))
         {
             if (!kinematic)
             {
@@ -44,7 +47,7 @@ public class GhostScript : MonoBehaviour
 
                 kinematic = true;
             }
-            moveLeft();
+            moveLeft(dt);
         }
         else
         {
@@ -59,12 +62,12 @@ public class GhostScript : MonoBehaviour
         }
     }
 
-    private void moveLeft()
+    private void moveLeft(float dt)
     {
         if (umbrella_startX < _Umbrella.transform.position.x)
         {
-            _Ragdoll.transform.position += speed * Time.deltaTime;
-            _Umbrella.transform.position += speed * Time.deltaTime;
+            _Ragdoll.transform.position += speed * dt;
+            _Umbrella.transform.position += speed * dt;
         }
     }
 }

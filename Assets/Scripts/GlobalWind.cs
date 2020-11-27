@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class GlobalWind : MonoBehaviour
+public class GlobalWind : MonoBehaviour, IUpdateable
 {
     public UmbrellaScript umbrella;
     public AudioSource windSFX;
@@ -23,27 +23,33 @@ public class GlobalWind : MonoBehaviour
     public float minSoundVolume;
     public float maxSoundVolume;
 
+    public GameLogic gl;
+
     // Update is called once per frame
     void Start()
     {
         umbrella.addForce(id, magnitude, direction);
         StartCoroutine("RandomWindDirection_Set");
+        gl.RegisterUpdateObject(this);
     }
 
-    void Update() {
+    public virtual void OnUpdate(float dt)
+    {
 
         // Debug Visualization of Global Wind Direction
-        line.SetPosition(0, Vector3.zero);
-        line.SetPosition(1, windDirection.position);
+        //line.SetPosition(0, Vector3.zero);
+        //line.SetPosition(1, windDirection.position);
 
         // Apply velocity to rain particles along x based on the wind direction
         var velocityOverLifetime = _rainParticle.velocityOverLifetime;
-        velocityOverLifetime.xMultiplier = windDirection.position.x * -1.0f;
+        velocityOverLifetime.xMultiplier = windDirection.position.x * 1.0f;
 
-        // TODO: Randomize wind changes, keep in mind to change it gradually since this is Update()
-        windDirection.transform.position = Vector3.Lerp(windDirection.position, new Vector3(currentX_direction, windDirection.position.y, 0), Time.deltaTime * 0.3f);
+        // Randomize wind changes, keep in mind to change it gradually since this is Update()
+        windDirection.transform.position = Vector3.Lerp(windDirection.position, new Vector3(currentX_direction, windDirection.position.y, 0)
+                                                                                            , dt * 0.3f);
 
         direction = (Vector2)windDirection.position - Vector2.zero;
+
         umbrella.updateForce(id, magnitude, direction);
 
         //Fade sound in and out based on parallelity with umbrella
@@ -58,7 +64,7 @@ public class GlobalWind : MonoBehaviour
 
     private IEnumerator RandomWindDirection_Set()
     {
-        yield return new WaitForSeconds(Random.Range(1f,1.2f));
+        yield return new WaitForSeconds(Random.Range(5f,8f));
 
         float x = Random.Range(1f,10f);
         float y = Mathf.Log(x, 10f);
